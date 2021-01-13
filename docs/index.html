@@ -33,7 +33,7 @@
 <title>AQUA : splatr Explorer</title>
 <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAgMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0iTTEsMSBoMCIgc3Ryb2tlPSIjMDBlNmE4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxwb2x5bGluZSBzdHJva2U9IiMwMGU2YTgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBwb2ludHM9IjEsMy42NjY3IDksMSIvPgogIDxwb2x5bGluZSBzdHJva2U9IiMwMGU2YTgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBwb2ludHM9IjEsNi4zMzM0IDksMy42NjY3Ii8+CiAgPHBvbHlsaW5lIHN0cm9rZT0iIzAwZTZhOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIHBvaW50cz0iMSw5IDksNi4zMzM0Ii8+ICAKICA8cGF0aCBkPSJNOSw5IGgwIiBzdHJva2U9IiMwMGU2YTgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=" />
 <!--
-© splatr: v0.0.359
+© splatr: v0.0.360
 Coil Crypto AQUA Splash Explorer
 
 To contact me, do write at these :
@@ -60,11 +60,23 @@ $COIL:
 <meta name="keywords" content="CoilCrypto Dashboard, AQUA, splatr, itsN1X, Explorer Live, Historical Data">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {font-family: "Times New Roman", sans-serif;overflow:hidden;
+html:not(#d) {
+   font-family: "Times New Roman", sans-serif;
+   overflow:hidden;
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
    box-sizing: border-box;
    transition: all 0.2s;}
+#d {
+   font-family: "Times New Roman", sans-serif;
+   overflow:auto;
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+   transition: all 0.2s;
+   position:relative;
+   height:20%
+}
 html {
   width: 100%;
   height: 100%;
@@ -130,7 +142,35 @@ animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 0.2, 0.1);
 #s {
   position:relative;
 }
-#h6{
+#hi{
+	position:absolute;
+	height:18%;
+	overflow:auto;
+	width: 100%;
+	right:0;
+	color:#054;
+	font-size:0.8em;
+}
+#hi a{
+	color: #069;
+	text-decoration-line: none
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: blue cyan;
+}
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: cyan;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: blue;
+  border-radius: 20px;
+  border: 3px solid cyan;
+}
+#sprinkles{
   position:relative;
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
@@ -154,11 +194,11 @@ animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 0.2, 0.1);
     </mask>
         <g id="wav">
       <use x="0" y="0" xlink:href="#targ" fill="" opacity="1"/><!--mascol-->
-  <rect class="water-fill" mask="url(#mask)" fill="url(#water)" y="65" width="800" height="120" opacity="0.2">
-    <animate attributeType="xml" attributeName="x" from="-200" to="0" repeatCount="indefinite" dur="17s"/>
-  </rect>
-  <rect class="water-fill" mask="url(#mask)" fill="url(#water)" x="-300" y="70" width="1200" height="120" opacity="0.4">
+  <rect class="water-fill" mask="url(#mask)" fill="url(#water)" x="-300" y="70" width="1200" height="120" opacity="0.2">
     <animate attributeType="xml" attributeName="x" from="-300" to="0" repeatCount="indefinite" dur="13s"/>
+  </rect>
+  <rect class="water-fill" mask="url(#mask)" fill="url(#water)" y="65" width="800" height="120" opacity="0.4">
+    <animate attributeType="xml" attributeName="x" from="-200" to="0" repeatCount="indefinite" dur="17s"/>
   </rect><!--
    <rect class="water-fill" mask="url(#mask)" fill="url(#water)" y="45" width="1600" height="120" opacity="0.6">
     <animate attributeType="xml" attributeName="x" from="-400" to="0" repeatCount="indefinite" dur="17s"/>
@@ -173,16 +213,18 @@ animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 0.2, 0.1);
 <!--<h1 align="center" id="s">splatr</h1>-->
 <div align="center" id="clouds"></div>
 <div align="center"><span id="n">There's <span id="lighthouse"></span> AQUA in clouds!</span></div>
-<div id="h6" align="center">
+<div id="sprinkles" align="center">
 	<div><b>Splasher</b><br>5%<img src="i/5.svg" class="i"></img><br><span id="h5">-.----</span><br>($<span id="p5">-.---</span>)</div>
-	<div><b>Fountain</b><br>.3/4th<img src="i/1.svg" class="i"><br><span id="h1">-.----</span><br>($<span id="p1">-.---</span>)</div>
-	<div><b>Hodlr's</b><br>.7/4th<img src="i/2.svg" class="i"><br><span id="h2">-.----</span><br>($<span id="p2">-.---</span>)</div>
-	<div><b>Torched</b><br>1/4th<img src="i/3.svg" class="i"><br><span id="h3">-.----</span><br>($<span id="p3">-.---</span>)</div>
-	<div><b>Aquifier</b><br>2/4th<img src="i/4.svg" class="i"><br><span id="h4">-.----</span><br>($<span id="p4">-.---</span>)</div>
+	<div><b>Fountain</b><br>.3/4th<img src="i/1.svg" class="i"></img><br><span id="h1">-.----</span><br>($<span id="p1">-.---</span>)</div>
+	<div><b>Hodlr's</b><br>.7/4th<img src="i/2.svg" class="i"></img><br><span id="h2">-.----</span><br>($<span id="p2">-.---</span>)</div>
+	<div><b>Torched</b><br>1/4th<img src="i/3.svg" class="i"></img><br><span id="h3">-.----</span><br>($<span id="p3">-.---</span>)</div>
+	<div><b>Aquifier</b><br>2/4th<img src="i/4.svg" class="i"></img><br><span id="h4">-.----</span><br>($<span id="p4">-.---</span>)</div>
+</div><br>
+<div id="hi" align="center">
 </div>
 <div id="l" align="center"><b><i><a href="https://aqua.coilcrypto.com" target="_blank">Launch Aqua dApp &
 <span id="lb"></span>Splash unto the Aquii.</a></i></b></div>
-<div id="f"><font size="5">splatr</font><font size="2">v0.0.359</font><br><font size="3">With ++&lt;3;<br>@</font><font size="4">
+<div id="f"><font size="5">splatr</font><font size="2">v0.0.360</font><br><font size="3">With ++&lt;3;<br>@</font><font size="4">
 <b><i><a href="https://t.me/itsN1X" target="_blank" style="text-decoration: none;">itsN1X</a></i></b></font><font size="3">#2551</font></div>
 <script>
 r=new XMLHttpRequest();
@@ -220,7 +262,7 @@ console.log(`
 	interact, view or download our
 	Softwares/product/Information.
 
-© rebtra: v0.0.359
+© rebtra: v0.0.360
 Coil Crypto Rebase Tracer Tracker
 
 D░░░░░░░░▄░░░░░░░░ ░░░░░▄░░░░
@@ -304,5 +346,25 @@ function cash(drops)
 	};
 	g.send();
 }
+
+h=new XMLHttpRequest();
+h.open("GET","https://api.etherscan.io/api?module=logs&action=getLogs&fromBlock=11537825&toBlock=latest&address=0x7e32c8727cc19dd59a7a4d01b95ae1cbfc8f4c77&topic0=0x8765d2bb982ed6ee74d2b03c76c9c129aa4a4e3e6b17bd7cf7830088e9d49054&apikey=E886KCIJYVFPED7GXEA5PR9I9WHCTBVHJ4",true);
+h.onload = function()
+{
+	const hi=(JSON.parse(this.response)).result;
+	document.getElementById("hi").innerHTML = "<b><u><i>Recent AQUA Splashes</i></u></b><br>";
+	for(i=hi.length-1;i>-1;i--)
+	{
+		splatr = parseInt(hi[i].data)/1e9;
+		document.getElementById("hi").innerHTML += `${splatr.toFixed(9)} AQUA in Splash <a href=${"https://etherscan.io/tx/"+hi[i].transactionHash+"#eventlog"} target="_blank">№ ${i}</a> on ${(new Date(parseInt(hi[i].timeStamp)*1e3)).toLocaleString()} at a cost of ${parseInt(hi[i].gasUsed)*parseInt(hi[i].gasPrice)/1e18} ETH.<br>
+		<img src="i/5.svg" class="i"></img>${(splatr*0.05).toFixed(9)}
+		  <img src="i/1.svg" class="i"></img>${(splatr*0.95*0.3/4).toFixed(9)}
+		  <img src="i/2.svg" class="i"></img>${(splatr*0.95*0.7/4).toFixed(9)}
+		  <img src="i/3.svg" class="i"></img>${(splatr*0.95*1/4).toFixed(9)}
+		  <img src="i/4.svg" class="i"></img>${(splatr*0.95*2/4).toFixed(9)}
+		<br><br>`;
+	}
+}
+h.send();
 </script>
 </html>
