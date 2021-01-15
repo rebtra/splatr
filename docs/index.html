@@ -33,7 +33,7 @@
 <title>AQUA : splatr Explorer</title>
 <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAgMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0iTTEsMSBoMCIgc3Ryb2tlPSIjMDBlNmE4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxwb2x5bGluZSBzdHJva2U9IiMwMGU2YTgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBwb2ludHM9IjEsMy42NjY3IDksMSIvPgogIDxwb2x5bGluZSBzdHJva2U9IiMwMGU2YTgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBwb2ludHM9IjEsNi4zMzM0IDksMy42NjY3Ii8+CiAgPHBvbHlsaW5lIHN0cm9rZT0iIzAwZTZhOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIHBvaW50cz0iMSw5IDksNi4zMzM0Ii8+ICAKICA8cGF0aCBkPSJNOSw5IGgwIiBzdHJva2U9IiMwMGU2YTgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=" />
 <!--
-© splatr: v0.0.362
+© splatr: v0.0.364
 Coil Crypto AQUA Splash Explorer
 
 To contact me, do write at these :
@@ -61,7 +61,7 @@ $COIL:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 html:not(#d) {
-   font-family: "Times New Roman", sans-serif;
+font-family:courier,arial,helvetica;
    overflow:hidden;
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
@@ -149,13 +149,12 @@ animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 0.2, 0.1);
 	overflow:auto;
 	width: 100%;
 	right:0;
-	color:#021;
+	color:mintcream;
 	font-size:0.8em;
 }
 #hi a{
-	color: #011649;
-	text-decoration-style: wavy;
-	text-decoration-color: cyan
+	color: mintcream;
+	text-decoration: underline wavy 2px cyan
 }
 * {
   scrollbar-width: thin;
@@ -222,7 +221,7 @@ animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 0.2, 0.1);
 	height:16px;
 }
 body {
-  background:radial-gradient(ellipse at center, darkseagreen 0%, darkcyan 35%, darkblue 150%);
+  background:radial-gradient(ellipse at center, aqua -69%,darkcyan 35%, darkblue 150%);
   overflow: hidden;
 }
 </style>
@@ -244,7 +243,7 @@ body {
 </div>
 <div id="l" align="center"><b><i><a href="https://aqua.coilcrypto.com" target="_blank">Launch Aqua dApp &
 <span id="lb"></span>Splash unto the Aquii.</a></i></b></div>
-<div id="f"><font size="5">splatr</font><font size="2">v0.0.362</font><br><font size="3">With ++&lt;3;<br>@</font><font size="4">
+<div id="f"><font size="5">splatr</font><font size="2">v0.0.364</font><br><font size="3">With ++&lt;3;<br>@</font><font size="4">
 <b><i><a href="https://t.me/itsN1X" target="_blank" style="text-decoration: none;">itsN1X</a></i></b></font><font size="3">#2551</font></div>
 <script>
 r=new XMLHttpRequest();
@@ -253,7 +252,7 @@ r.onload = function() {cloud(JSON.parse(this.response).result)};
 if (innerWidth < 641) {document.getElementById("lb").innerHTML="<br>"}
 console.log(`
 :       Reserved© itsN1X & EX(I)T 2020
-  Written by @itsN1X on day 8877
+	Written by @itsN1X on day 8877
 	@github.com/itsN1X/8877_splatr
 	To tip me or to donate, visit:
 	>> https://9xo.github.io/R/teb
@@ -282,7 +281,7 @@ console.log(`
 	interact, view or download our
 	Softwares/product/Information.
 
-© rebtra: v0.0.362
+© rebtra: v0.0.364
 Coil Crypto Rebase Tracer Tracker
 
 D░░░░░░░░▄░░░░░░░░ ░░░░░▄░░░░
@@ -333,7 +332,7 @@ With ++♡;
 `)
 function cloud(droplet){
 	C=document.getElementById("clouds");
-	document.getElementById("lighthouse").textContent=droplet/1e9;
+	document.getElementById("lighthouse").textContent=(droplet/1e9).toFixed(9);
 	rain=Math.trunc(droplet/1e9)+1;
 	s=Math.max(Math.min(Math.trunc(3*innerWidth/rain-3.2*rain),100),24)+"px";
 	for(let i = 0; i< rain;i++)
@@ -343,10 +342,10 @@ function cloud(droplet){
 		c.setAttribute("width",s);
 		C.appendChild(c);
 	}
-	document.getElementById("h1").textContent=(droplet/1e11*95*0.3/4).toFixed(4);
-	document.getElementById("h2").textContent=(droplet/1e11*95*0.7/4).toFixed(4);
-	document.getElementById("h3").textContent=(droplet/1e11*95*1/4).toFixed(4);
-	document.getElementById("h4").textContent=(droplet/1e11*95*2/4).toFixed(4);
+	document.getElementById("h1").textContent=(droplet/1e11*0.3/2.3*95).toFixed(4);
+	document.getElementById("h2").textContent=(droplet/1e9/2.3*0.7).toFixed(4);
+	document.getElementById("h3").textContent=(droplet/1e9/2.3).toFixed(4);
+	document.getElementById("h4").textContent=(droplet/1e11*2/2.3*95).toFixed(4);
 	document.getElementById("h5").textContent=(droplet/1e11*5).toFixed(4);
 	cash(droplet);
 }
@@ -358,10 +357,10 @@ function cash(drops)
 	g.onload = function()
 	{
 		d=(JSON.parse(this.response))["aqua"].usd;
-		document.getElementById("p1").textContent=(d*drops/1e11*95*0.3/4).toFixed(3);
-		document.getElementById("p2").textContent=(d*drops/1e11*95*0.7/4).toFixed(3);
-		document.getElementById("p3").textContent=(d*drops/1e11*95*1/4).toFixed(3);
-		document.getElementById("p4").textContent=(d*drops/1e11*95*2/4).toFixed(3);
+		document.getElementById("p1").textContent=(d*drops/1e11*0.3/2.3*95).toFixed(3);
+		document.getElementById("p2").textContent=(d*drops/1e9/2.3*0.7).toFixed(3);
+		document.getElementById("p3").textContent=(d*drops/1e9/2.3).toFixed(3);
+		document.getElementById("p4").textContent=(d*drops/1e11*2/2.3*95).toFixed(3);
 		document.getElementById("p5").textContent=(d*drops/1e11*5).toFixed(3);
 	};
 	g.send();
@@ -376,12 +375,12 @@ h.onload = function()
 	for(i=hi.length-1;i>-1;i--)
 	{
 		splatr = parseInt(hi[i].data)/1e9;
-		document.getElementById("hi").innerHTML += `${splatr.toFixed(9)} AQUA in Splash <a href=${"https://etherscan.io/tx/"+hi[i].transactionHash+"#eventlog"} target="_blank">№ ${i+1}</a> on ${(new Date(parseInt(hi[i].timeStamp)*1e3)).toLocaleString()} at a cost of ${parseInt(hi[i].gasUsed)*parseInt(hi[i].gasPrice)/1e18} ETH.<br>
+		document.getElementById("hi").innerHTML += `${splatr.toFixed(9)} AQUA in <a href=${"https://etherscan.io/tx/"+hi[i].transactionHash} target="_blank">Splash № ${i+1}</a> on ${(new Date(parseInt(hi[i].timeStamp)*1e3)).toLocaleString()} at a cost of ${parseInt(hi[i].gasUsed)*parseInt(hi[i].gasPrice)/1e18} ETH.<br>
 		<img src="i/5.svg" class="i"></img>${(splatr*0.05).toFixed(9)}
-		  <img src="i/1.svg" class="i"></img>${(splatr*0.95*0.3/4).toFixed(9)}
-		  <img src="i/2.svg" class="i"></img>${(splatr*0.95*0.7/4).toFixed(9)}
-		  <img src="i/3.svg" class="i"></img>${(splatr*0.95*1/4).toFixed(9)}
-		  <img src="i/4.svg" class="i"></img>${(splatr*0.95*2/4).toFixed(9)}
+		  <img src="i/1.svg" class="i"></img>${(splatr*0.3/2.3*0.95).toFixed(9)}
+		  <img src="i/2.svg" class="i"></img>${(splatr/2.3*0.7).toFixed(9)}
+		  <img src="i/3.svg" class="i"></img>${(splatr/2.3).toFixed(9)}
+		  <img src="i/4.svg" class="i"></img>${(splatr*2/2.3*0.95).toFixed(9)}
 		<br><br>`;
 	}
 }
