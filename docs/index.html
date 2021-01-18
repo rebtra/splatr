@@ -33,7 +33,7 @@
 <title>AQUA : splatr Explorer</title>
 <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAgMTAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHBhdGggZD0iTTEsMSBoMCIgc3Ryb2tlPSIjMDBlNmE4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxwb2x5bGluZSBzdHJva2U9IiMwMGU2YTgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBwb2ludHM9IjEsMy42NjY3IDksMSIvPgogIDxwb2x5bGluZSBzdHJva2U9IiMwMGU2YTgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBwb2ludHM9IjEsNi4zMzM0IDksMy42NjY3Ii8+CiAgPHBvbHlsaW5lIHN0cm9rZT0iIzAwZTZhOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIHBvaW50cz0iMSw5IDksNi4zMzM0Ii8+ICAKICA8cGF0aCBkPSJNOSw5IGgwIiBzdHJva2U9IiMwMGU2YTgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIi8+Cjwvc3ZnPgo=" />
 <!--
-© splatr: v0.0.365
+© splatr: v0.0.366
 Coil Crypto AQUA Splash Explorer
 
 To contact me, do write at these :
@@ -61,7 +61,7 @@ $COIL:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 html:not(#d) {
-   font-family: Helvetica, Helvetica Neue, Arial, Sans-serif;
+font-family:courier,arial,helvetica;
    overflow:hidden;
    -webkit-box-sizing: border-box;
    -moz-box-sizing: border-box;
@@ -94,7 +94,7 @@ html {
   position:relative;
   animation-duration: 8s;
   animation-name: overcast;
-animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 0.2, 0.1);
+  animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 0.2, 0.1);
 }
 #f{
   position:absolute;
@@ -213,7 +213,7 @@ animation-timing-function: ease, step-start, cubic-bezier(0.1, 0.7, 0.2, 0.1);
 	display: grid;
 	grid-template-columns: auto auto auto auto auto;
 	font-size:0.9em;
-	grid-gap:2vw;
+	grid-gap:1vw;
 	color:#bff;
 }
 .i img{
@@ -243,7 +243,7 @@ body {
 </div>
 <div id="l" align="center"><b><i><a href="https://aqua.coilcrypto.com" target="_blank">Launch Aqua dApp &
 <span id="lb"></span>Splash unto the Aquii.</a></i></b></div>
-<div id="f"><font size="5">splatr</font><font size="2">v0.0.365</font><br><font size="3">With ++&lt;3;<br>@</font><font size="4">
+<div id="f"><font size="5">splatr</font><font size="2">v0.0.366</font><br><font size="3">With ++&lt;3;<br>@</font><font size="4">
 <b><i><a href="https://t.me/itsN1X" target="_blank" style="text-decoration: none;">itsN1X</a></i></b></font><font size="3">#2551</font></div>
 <script>
 r=new XMLHttpRequest();
@@ -281,7 +281,7 @@ console.log(`
 	interact, view or download our
 	Softwares/product/Information.
 
-© rebtra: v0.0.365
+© rebtra: v0.0.366
 Coil Crypto Rebase Tracer Tracker
 
 D░░░░░░░░▄░░░░░░░░ ░░░░░▄░░░░
@@ -334,7 +334,7 @@ function cloud(droplet){
 	C=document.getElementById("clouds");
 	document.getElementById("lighthouse").textContent=(droplet/1e9).toFixed(9);
 	rain=Math.trunc(droplet/1e9)+1;
-	s=Math.max((Math.min((Math.trunc(3*innerWidth/rain-3.2*rain)),100)),24)+"px";
+	s=Math.max(Math.min(Math.trunc(3*innerWidth/rain-3.2*rain),100),24)+"px";
 	for(let i = 0; i< rain;i++)
 	{
 		c=document.createElement("img");
@@ -371,17 +371,24 @@ h.open("GET","https://api.etherscan.io/api?module=logs&action=getLogs&fromBlock=
 h.onload = function()
 {
 	const hi=(JSON.parse(this.response)).result;
-	document.getElementById("hi").innerHTML = "<b><u><i>Recent Splashes</i></u></b><br>";
+	document.getElementById("hi").innerHTML = "<b><u><i>Recent Splashes</i></u></b><br><br>";
 	for(i=hi.length-1;i>-1;i--)
 	{
 		splatr = parseInt(hi[i].data)/1e9;
-		document.getElementById("hi").innerHTML += `${splatr.toFixed(9)} AQUA in <a href=${"https://etherscan.io/tx/"+hi[i].transactionHash} target="_blank">Splash № ${i+1}</a> on ${(new Date(parseInt(hi[i].timeStamp)*1e3)).toLocaleString()} at a cost of ${parseInt(hi[i].gasUsed)*parseInt(hi[i].gasPrice)/1e18} ETH.<br>
-		<img src="i/5.svg" class="i"></img>${(splatr*0.05).toFixed(9)}
-		  <img src="i/1.svg" class="i"></img>${(splatr*0.3/2.3*0.95).toFixed(9)}
-		  <img src="i/2.svg" class="i"></img>${(splatr/2.3*0.7).toFixed(9)}
-		  <img src="i/3.svg" class="i"></img>${(splatr/2.3).toFixed(9)}
-		  <img src="i/4.svg" class="i"></img>${(splatr*2/2.3*0.95).toFixed(9)}
-		<br><br>`;
+		document.getElementById("hi").innerHTML += `
+		${splatr.toFixed(9)} AQUA in
+		<a href=${"https://etherscan.io/tx/"+hi[i].transactionHash} target="_blank">
+		Splash № ${i+1}</a> on ${(new Date(parseInt(hi[i].timeStamp)*1e3)).toLocaleString()}
+		at a cost of ${parseInt(hi[i].gasUsed)*parseInt(hi[i].gasPrice)/1e18} ETH.<br>
+		<img src="i/5.svg" class="i"></img>${(splatr*28/575).toFixed(9)}
+		<img src="i/1.svg" class="i"></img>${(splatr*72/575).toFixed(9)}
+		<img src="i/2.svg" class="i"></img>${(splatr/2.3*0.7).toFixed(9)}
+		<img src="i/3.svg" class="i"></img>${(splatr/2.3).toFixed(9)}
+		<img src="i/4.svg" class="i"></img>${(splatr*475/575).toFixed(9)}
+		<br>...<br>`;
+		// 5.svg = NOT ${(splatr*0.05).toFixed(9)}			=> L:423.AQUA::SC
+		// 1.svg = NOT ${(splatr*0.3/2.3*0.95).toFixed(9)}	=> L:422.AQUA::SC
+		// 4.svg = NOT ${(splatr*2/2.3*0.95).toFixed(9)}	=> L:421.AQUA::SC
 	}
 }
 h.send();
